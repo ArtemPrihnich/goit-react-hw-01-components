@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import RandomHexColor from '../../utils/RandomHexColor'
 
 export const Section = styled.section`
-padding-top: 40px;
+padding: 40px 0;
 `;
 
 export const Title = styled.h2`
@@ -22,7 +22,7 @@ text-align: center;
 margin-right: 10px;
 padding: 5px;
  :last-child{margin-right: 0};
-border: 1px solid black;
+border: ${props => `1px solid ${props.theme.colors.black}`};
 border-radius: 3px;
 background-color: ${RandomHexColor};
 `;

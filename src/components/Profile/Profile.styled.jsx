@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
 display: block;
 width: 200px;
-border: 1px dashed black;
+border: ${props => `1px dashed ${props.theme.colors.black}`};
 border-radius: 5px;
 margin: 0 auto;
+padding: 10px 0;
 `;
 
 export const Description = styled.div`
@@ -37,7 +38,7 @@ export const List = styled.ul`
 margin-top: 15px;
 display: flex;
 justify-content: center;
-background-color: lightgray;
+background-color: ${props => props.theme.colors.lightgray};
 `;
 
 export const Item = styled.li`
