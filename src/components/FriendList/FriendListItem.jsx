@@ -1,8 +1,9 @@
-import { Chip, List, Item, Image, Name } from './FriendList.styled'
+import { Chip, Item, Image, Name } from './FriendList.styled'
+import PropTypes from 'prop-types'
 
 export default function FriendListItem({ friends }) {
     return (
-        <List>
+        <>
             {friends.map(friend => (
                 <Item key={friend.id}>
                     <Chip friend={friend} />
@@ -10,6 +11,14 @@ export default function FriendListItem({ friends }) {
                     <Name>{friend.name}</Name>
                 </Item>
             ))}
-        </List>
+        </>
     )
+}
+
+FriendListItem.propTypes = {
+    friends: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        avatar: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
+    })),
 }

@@ -1,25 +1,25 @@
-import { Table, TableBody, TableBodyData, TableBodyRow, TableHead, TableHeader, TableHeadRow } from "./TransactionHistory.styled"
+import { TableBodyData, TableBodyRow } from "./TransactionHistory.styled"
+import PropTypes from 'prop-types'
 
 export default function TransactionHistoryItem({ transactions }) {
     return (
-        <Table>
-            <TableHead>
-                <TableHeadRow>
-                    <TableHeader>Type</TableHeader>
-                    <TableHeader>Amount</TableHeader>
-                    <TableHeader>Currency</TableHeader>
-                </TableHeadRow>
-            </TableHead>
-
-            <TableBody>
-                {transactions.map(transaction => {
-                    return (<TableBodyRow transaction={transaction} key={transaction.id}>
-                        <TableBodyData>{transaction.type}</TableBodyData>
-                        <TableBodyData>{transaction.amount}</TableBodyData>
-                        <TableBodyData>{transaction.currency}</TableBodyData>
-                    </TableBodyRow>)
-                })}
-            </TableBody>
-        </Table>
+        <>
+            {transactions.map(transaction => {
+                return (<TableBodyRow transaction={transaction} key={transaction.id}>
+                    <TableBodyData>{transaction.type}</TableBodyData>
+                    <TableBodyData>{transaction.amount}</TableBodyData>
+                    <TableBodyData>{transaction.currency}</TableBodyData>
+                </TableBodyRow>)
+            })}
+        </>
     )
+}
+
+TransactionHistoryItem.propTypes = {
+    transactions: PropTypes.arrayOf(PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired
+    })),
 }

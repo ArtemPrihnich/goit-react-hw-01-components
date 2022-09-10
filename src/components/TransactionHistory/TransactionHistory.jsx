@@ -1,18 +1,22 @@
-import PropTypes from 'prop-types'
+
 import TransactionHistoryItem from './TransactionHistoryItem'
 import transactions from '../data/transactions.json'
+import { Table, TableBody, TableHead, TableHeader, TableHeadRow } from "./TransactionHistory.styled"
 
 export default function TransactionHistory() {
     return (
-        <TransactionHistoryItem transactions={transactions} />
-    )
-}
+        <Table>
+            <TableHead>
+                <TableHeadRow>
+                    <TableHeader>Type</TableHeader>
+                    <TableHeader>Amount</TableHeader>
+                    <TableHeader>Currency</TableHeader>
+                </TableHeadRow>
+            </TableHead>
 
-TransactionHistory.propTypes = {
-    transactions: PropTypes.arrayOf(PropTypes.exact({
-        id: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
-        currency: PropTypes.string.isRequired
-    })),
+            <TableBody>
+                < TransactionHistoryItem transactions={transactions} />
+            </TableBody>
+        </Table>
+    )
 }

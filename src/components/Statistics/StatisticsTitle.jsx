@@ -1,7 +1,12 @@
 import { Title } from "./Statistics.styled"
+import PropTypes from 'prop-types'
 
-export default function StatisticsTitle() {
+export default function StatisticsTitle({ title }) {
     return (
-        <Title>Upload stats</Title>
+        title && <Title>{title}</Title>
     )
+}
+
+StatisticsTitle.propTypes = {
+    title: PropTypes.string.isRequired,
 }
