@@ -1,6 +1,6 @@
 
 import TransactionHistoryItem from './TransactionHistoryItem'
-import transactions from '../data/transactions.json'
+import transactions from '../../data/transactions.json'
 import { Table, TableBody, TableHead, TableHeader, TableHeadRow } from "./TransactionHistory.styled"
 
 export default function TransactionHistory() {
